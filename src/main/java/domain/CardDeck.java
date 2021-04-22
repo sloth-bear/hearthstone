@@ -1,9 +1,9 @@
 package domain;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import org.apache.commons.collections4.CollectionUtils;
 
 public class CardDeck {
@@ -29,14 +29,11 @@ public class CardDeck {
 
     int randomCardSize = Math.min(this.cards.size(), quantity);
 
-    List<Card> randomCards = new ArrayList<>(randomCardSize);
-    Random random = new Random();
+    Collections.shuffle(cards);
 
-    for (int i = 0; i < randomCardSize; i++) {
-      randomCards.add(cards.get(random.nextInt(cards.size())));
-    }
-
-    return randomCards;
+    return IntStream.range(0, randomCardSize)
+        .mapToObj(cards::get)
+        .collect(Collectors.toList());
   }
 
 }
