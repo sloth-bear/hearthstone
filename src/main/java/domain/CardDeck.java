@@ -14,8 +14,8 @@ public class CardDeck {
     this.cards = cards;
   }
 
-  public List<Card> distribute(final AttackOrder attackOrder) {
-    return getRandomCards(attackOrder.getCardQuantity());
+  public List<Card> distribute(final CardQuantity cardQuantity) {
+    return getRandomCards(cardQuantity.getQuantity());
   }
 
   public List<Card> distribute(final int quantity) {
