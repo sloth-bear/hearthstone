@@ -27,7 +27,7 @@ public class CardDeck {
       return Collections.emptyList();
     }
 
-    int randomCardSize = this.cards.size() > quantity ? quantity : this.cards.size();
+    int randomCardSize = Math.min(this.cards.size(), quantity);
 
     List<Card> randomCards = new ArrayList<>(randomCardSize);
     Random random = new Random();
