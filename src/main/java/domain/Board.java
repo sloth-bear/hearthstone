@@ -13,7 +13,7 @@ public class Board {
     this.maxQuantityOfCard = maxQuantityOfCard;
   }
 
-  public void putDown(final List<Card> cards) {
+  public void register(final List<Card> cards) {
     if (CollectionUtils.size(cards) >= maxQuantityOfCard) {
       throw new IllegalArgumentException();
     }
@@ -21,7 +21,7 @@ public class Board {
     this.cards = cards;
   }
 
-  public void putDown(final Card card) {
+  public void register(final Card card) {
     if (card == null) {
       throw new IllegalArgumentException();
     }
