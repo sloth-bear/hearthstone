@@ -23,8 +23,12 @@ public class Player {
   }
 
   public void receive(final Card card) {
-    if (card == null || CollectionUtils.size(this.cards) >= maxQuantityOfCard) {
+    if (card == null) {
       throw new IllegalArgumentException();
+    }
+
+    if (CollectionUtils.size(this.cards) >= maxQuantityOfCard) {
+      throw new IllegalStateException();
     }
 
     this.cards.add(card);
