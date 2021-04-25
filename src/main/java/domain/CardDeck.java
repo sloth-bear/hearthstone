@@ -18,7 +18,8 @@ public class CardDeck {
   }
 
   public CardDeck(final List<Card> cards, final int maxQuantityOfCard) {
-    this.cards = cards;
+    this(cards);
+
     this.maxQuantityOfCard = maxQuantityOfCard;
   }
 
