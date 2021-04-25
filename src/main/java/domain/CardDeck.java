@@ -15,25 +15,19 @@ public class CardDeck {
   }
 
   public List<Card> distribute(final CardQuantity cardQuantity) {
-    return getRandomCards(cardQuantity.getQuantity());
+    return distribute(cardQuantity.getQuantity());
   }
 
   public List<Card> distribute(final int quantity) {
-    return getRandomCards(quantity);
-  }
-
-  private List<Card> getRandomCards(int quantity) {
-    if (CollectionUtils.size(this.cards) < 1) {
+    if (CollectionUtils.isEmpty(this.cards)) {
       return Collections.emptyList();
     }
 
-    int randomCardSize = Math.min(this.cards.size(), quantity);
-
     Collections.shuffle(cards);
 
-    return IntStream.range(0, randomCardSize)
-        .mapToObj(cards::get)
-        .collect(Collectors.toList());
+    return IntStream.range(0, Math.min(this.cards.size(), quantity))
+            .mapToObj(cards::get)
+            .collect(Collectors.toList());
   }
 
 }
