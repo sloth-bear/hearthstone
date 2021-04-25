@@ -14,11 +14,15 @@ public class Board {
   }
 
   public void register(final List<Card> cards) {
+    if (CollectionUtils.isEmpty(cards)) {
+      throw new IllegalArgumentException();
+    }
+
     if (CollectionUtils.size(cards) >= maxQuantityOfCard) {
       throw new IllegalArgumentException();
     }
 
-    this.cards = cards;
+    this.cards.addAll(cards);
   }
 
   public void register(final Card card) {

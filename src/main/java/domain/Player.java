@@ -1,25 +1,25 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.List;
 import org.apache.commons.collections4.CollectionUtils;
+
+import java.util.List;
 
 public class Player {
 
-  private int maxQuantityOfCard = 10;
+  private final CardDeck cardDeck;
+  private final Board board;
 
-  private List<Card> cards = new ArrayList<>();
-
-  public void setMaxQuantityOfCard(final int maxQuantityOfCard) {
-    this.maxQuantityOfCard = maxQuantityOfCard;
+  public Player(final CardDeck cardDeck, final Board board) {
+    this.cardDeck = cardDeck;
+    this.board = board;
   }
 
   public void receive(final List<Card> cards) {
-    if (CollectionUtils.size(cards) >= maxQuantityOfCard) {
+    if (CollectionUtils.isEmpty(cards)) {
       throw new IllegalArgumentException();
     }
 
-    this.cards = cards;
+    this.cardDeck.add(cards);
   }
 
   public void receive(final Card card) {
@@ -27,11 +27,20 @@ public class Player {
       throw new IllegalArgumentException();
     }
 
-    if (CollectionUtils.size(this.cards) >= maxQuantityOfCard) {
-      throw new IllegalStateException();
+    this.cardDeck.add(card);
+  }
+
+  public void resister(final Card card) {
+    if (this.cardDeck == null || this.cardDeck.isEmpty()) {
+      throw new IllegalStateException("등록할 수 있는 카드가 없습니다.");
     }
 
-    this.cards.add(card);
+    if (this.cardDeck.contains(card)) {
+      throw new IllegalStateException("존재하지 않는 카드입니다.");
+    }
+
+    this.cardDeck.remove(card);
+    this.board.register(card);
   }
 
 }
