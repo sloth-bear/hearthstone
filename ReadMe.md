@@ -46,11 +46,11 @@
 
 
 ## 하스스톤에 필요한 객체 정리 
-1. CardDeck
-2. Card
-3. Player
-4. Board
-5. Hero
+1. `CardDeck`
+2. `Card`
+3. `Player`
+4. `Board`
+5. `Hero`
 
 
 
