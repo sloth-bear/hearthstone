@@ -11,11 +11,13 @@ public class Player {
 
   private final Board board;
 
+
   public Player(final Hero hero, final CardDeck cardDeck, final Board board) {
     this.hero = hero;
     this.cardDeck = cardDeck;
     this.board = board;
   }
+
 
   public void receive(final List<Card> cards) {
     if (CollectionUtils.isEmpty(cards)) {
@@ -58,7 +60,7 @@ public class Player {
     victim.beDamaged(attacker.getPower());
   }
 
-  public void attack(final Card attacker) {
+  public void attack(final Card attacker, final Hero victim) {
     if (this.cardDeck == null || this.cardDeck.isEmpty()) {
       throw new IllegalStateException("꺼낼 수 있는 카드가 없습니다.");
     }
@@ -67,7 +69,15 @@ public class Player {
       throw new IllegalStateException("존재하지 않는 카드입니다.");
     }
 
-    this.hero.beDamaged(attacker.getPower());
+    victim.beDamaged(attacker.getPower());
+  }
+
+  public void attack(final Card victim) {
+    victim.beDamaged(this.hero.getPower());
+  }
+
+  public void attack(final Hero victim) {
+    victim.beDamaged(this.hero.getPower());
   }
 
 }

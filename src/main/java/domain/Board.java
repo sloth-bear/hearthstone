@@ -7,7 +7,13 @@ public class Board {
 
   private int maxQuantityOfCard = 10;
 
-  private List<Card> cards;
+  private CardDeck cardDeck;
+
+
+  public Board() {
+    this.cardDeck = new CardDeck();
+  }
+
 
   public void setMaxQuantityOfCard(final int maxQuantityOfCard) {
     this.maxQuantityOfCard = maxQuantityOfCard;
@@ -22,7 +28,7 @@ public class Board {
       throw new IllegalArgumentException();
     }
 
-    this.cards.addAll(cards);
+    this.cardDeck.add(cards);
   }
 
   public void register(final Card card) {
@@ -30,11 +36,11 @@ public class Board {
       throw new IllegalArgumentException();
     }
 
-    if (CollectionUtils.size(this.cards) >= maxQuantityOfCard) {
+    if (this.cardDeck.getSize() >= maxQuantityOfCard) {
       throw new IllegalStateException();
     }
 
-    this.cards.add(card);
+    this.cardDeck.add(card);
   }
 
 }

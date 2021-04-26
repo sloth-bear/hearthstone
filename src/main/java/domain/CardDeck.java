@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -13,6 +14,11 @@ public class CardDeck {
 
   private List<Card> cards;
 
+
+  public CardDeck() {
+    this.cards = new ArrayList<>();
+  }
+
   public CardDeck(final List<Card> cards) {
     this.cards = cards;
   }
@@ -21,6 +27,19 @@ public class CardDeck {
     this(cards);
 
     this.maxQuantityOfCard = maxQuantityOfCard;
+  }
+
+
+  public boolean isEmpty() {
+    return CollectionUtils.isEmpty(this.cards);
+  }
+
+  public boolean contains(final Card card) {
+    return this.cards.contains(card);
+  }
+
+  public int getSize() {
+    return this.cards.size();
   }
 
   public List<Card> distribute(final CardQuantity cardQuantity) {
@@ -35,8 +54,8 @@ public class CardDeck {
     Collections.shuffle(cards);
 
     return IntStream.range(0, Math.min(this.cards.size(), quantity))
-            .mapToObj(cards::get)
-            .collect(Collectors.toList());
+        .mapToObj(cards::get)
+        .collect(Collectors.toList());
   }
 
   public void add(final List<Card> card) {
@@ -65,20 +84,12 @@ public class CardDeck {
 
   public void remove(final Card card) {
     if (card == null) {
-      throw new IllegalArgumentException("제거할 카드가 존재하지 않습니다.");
+      throw new IllegalArgumentException("제거할 카드를 다시 확인해주세요.");
     }
 
     this.cards = this.cards.stream()
         .filter(v -> Objects.equals(card.getId(), v.getId()))
         .collect(Collectors.toList());
-  }
-
-  public boolean isEmpty() {
-    return CollectionUtils.isEmpty(this.cards);
-  }
-
-  public boolean contains(final Card card) {
-    return this.cards.contains(card);
   }
 
 }
