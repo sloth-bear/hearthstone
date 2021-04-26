@@ -1,6 +1,8 @@
 package domain;
 
 
+import domain.card.Card;
+import domain.hero.Hero;
 import java.util.List;
 
 public class Player {
