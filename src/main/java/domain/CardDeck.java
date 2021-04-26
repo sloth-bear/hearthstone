@@ -30,10 +30,6 @@ public class CardDeck {
   }
 
 
-  public boolean isEmpty() {
-    return CollectionUtils.isEmpty(this.cards);
-  }
-
   public boolean contains(final Card card) {
     return this.cards.contains(card);
   }
