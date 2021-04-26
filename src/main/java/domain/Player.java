@@ -64,12 +64,4 @@ public class Player {
     victim.beDamaged(attacker.getPower());
   }
 
-  public void attack(final Card victim) {
-    victim.beDamaged(this.hero.getPower());
-  }
-
-  public void attack(final Hero victim) {
-    victim.beDamaged(this.hero.getPower());
-  }
-
 }

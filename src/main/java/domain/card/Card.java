@@ -6,14 +6,11 @@ public class Card {
 
   private final UUID id;
 
-  private Species species;
-
   private int power;
   private int hp;
 
-  public Card(final Species species, final int power, final int hp) {
+  public Card(final int power, final int hp) {
     this.id = UUID.randomUUID();
-    this.species = species;
     this.power = power;
     this.hp = hp;
   }
