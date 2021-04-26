@@ -62,8 +62,10 @@
 - 카드 나눔 시
   - 카드를 나눠줘라
   - 카드를 받아라
+- 카드 등록 시 
+  - 카드를 등록해라
+  - 카드를 꺼내라
 - 공격 시
-  - 카드를 등록해라 
   - 공격해라
   - 카드를 꺼내라 
   - 피해를 입어라
@@ -71,11 +73,14 @@
 
 
 ## 필요한 메시지를 수신할 객체 선택
-### 카드를 나눠줘라, 카드를 받아라
-<img width="389" alt="image" src="https://user-images.githubusercontent.com/62458327/116040692-4f975880-a6a7-11eb-920d-90d5bad6d496.png">
+### 카드 나눔 시
+<img width="368" alt="image" src="https://user-images.githubusercontent.com/62458327/116044640-1ca39380-a6ac-11eb-8688-378beb02135b.png">
 
-### 카드를 등록해라/공격해라, 카드를 꺼내라, 피해를 입어라
-<img width="586" alt="image" src="https://user-images.githubusercontent.com/62458327/116040819-73f33500-a6a7-11eb-90b5-53f723c7af4e.png">
+### 카드 등록 시 
+<img width="399" alt="image" src="https://user-images.githubusercontent.com/62458327/116044565-0a295a00-a6ac-11eb-8a14-f9992d6e694b.png">
+
+### 공격 시 
+<img width="586" alt="image" src="https://user-images.githubusercontent.com/62458327/116044648-2200de00-a6ac-11eb-8cc8-9b838def2a8a.png">
 
 
 
