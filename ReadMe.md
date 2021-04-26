@@ -80,7 +80,9 @@
 <img width="399" alt="image" src="https://user-images.githubusercontent.com/62458327/116044565-0a295a00-a6ac-11eb-8a14-f9992d6e694b.png">
 
 ### 공격 시 
-<img width="586" alt="image" src="https://user-images.githubusercontent.com/62458327/116044648-2200de00-a6ac-11eb-8cc8-9b838def2a8a.png">
+#### 카드의 공격
+<img width="405" alt="image" src="https://user-images.githubusercontent.com/62458327/116052504-a48d9b80-a6b4-11eb-9056-d0eeed01d27f.png">
 
-
+#### 영웅의 공격
+<img width="391" alt="image" src="https://user-images.githubusercontent.com/62458327/116052554-afe0c700-a6b4-11eb-85bc-1050a6b25757.png">
 
