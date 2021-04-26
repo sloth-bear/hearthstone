@@ -39,29 +39,21 @@ public class Player {
   }
 
   public void attack(final int indexOfDeck, final Card victim) {
-    if (victim == null) {
-      throw new IllegalArgumentException("공격받을 대상이 존재하지 않습니다.");
-    }
-
     if (this.cardDeck == null) {
       throw new IllegalStateException("카드덱이 존재하지 않습니다.");
     }
 
     Card attacker = this.cardDeck.takeOut(indexOfDeck);
-    victim.beDamaged(attacker.getPower());
+    attacker.attack(victim);
   }
 
   public void attack(final int indexOfDeck, final Hero victim) {
-    if (victim == null) {
-      throw new IllegalArgumentException("공격받을 대상이 존재하지 않습니다.");
-    }
-
     if (this.cardDeck == null) {
-      throw new IllegalStateException("꺼낼 수 있는 카드가 없습니다.");
+      throw new IllegalStateException("카드덱이 존재하지 않습니다.");
     }
 
     Card attacker = this.cardDeck.takeOut(indexOfDeck);
-    victim.beDamaged(attacker.getPower());
+    attacker.attack(victim);
   }
 
 }

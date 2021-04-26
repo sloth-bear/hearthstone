@@ -18,6 +18,10 @@ public class Hero {
     return this.id;
   }
 
+  public int getPower() {
+    return power;
+  }
+
   public void beDamaged(final int power) {
     this.hp = this.hp - power;
   }
