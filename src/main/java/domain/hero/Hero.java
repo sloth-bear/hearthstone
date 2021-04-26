@@ -1,5 +1,6 @@
 package domain.hero;
 
+import domain.card.Card;
 import java.util.UUID;
 
 public class Hero {
@@ -20,6 +21,24 @@ public class Hero {
 
   public int getPower() {
     return power;
+  }
+
+  public void attack(final Card victim) {
+    if (victim == null) {
+      throw new IllegalArgumentException("공격받을 대상이 존재하지 않습니다.");
+    }
+
+    victim.beDamaged(getPower());
+    this.beDamaged(victim.getPower());
+  }
+
+  public void attack(final Hero victim) {
+    if (victim == null) {
+      throw new IllegalArgumentException("공격받을 대상이 존재하지 않습니다.");
+    }
+
+    victim.beDamaged(getPower());
+    this.beDamaged(victim.getPower());
   }
 
   public void beDamaged(final int power) {

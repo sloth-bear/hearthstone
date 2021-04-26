@@ -56,4 +56,12 @@ public class Player {
     attacker.attack(victim);
   }
 
+  public void attack(final Card victim) {
+    this.hero.attack(victim);
+  }
+
+  public void attack(final Hero victim) {
+    this.hero.attack(victim);
+  }
+
 }
