@@ -1,6 +1,5 @@
 package domain;
 
-import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.List;
 
@@ -20,55 +19,45 @@ public class Player {
 
 
   public void receive(final List<Card> cards) {
-    if (CollectionUtils.isEmpty(cards)) {
-      throw new IllegalArgumentException();
-    }
-
     this.cardDeck.add(cards);
   }
 
   public void receive(final Card card) {
-    if (card == null) {
-      throw new IllegalArgumentException();
-    }
-
     this.cardDeck.add(card);
   }
 
-  public void resister(final Card card) {
-    if (this.cardDeck == null || this.cardDeck.isEmpty()) {
-      throw new IllegalStateException("등록할 수 있는 카드가 없습니다.");
+  public void resister(final int indexOfDeck, final int indexOfBoard) {
+    if (this.cardDeck == null) {
+      throw new IllegalStateException("카드덱이 존재하지 않습니다.");
     }
 
-    if (this.cardDeck.contains(card)) {
-      throw new IllegalStateException("존재하지 않는 카드입니다.");
-    }
-
-    this.cardDeck.remove(card);
-    this.board.register(card);
+    Card card = this.cardDeck.takeOut(indexOfDeck);
+    this.board.register(indexOfBoard, card);
   }
 
-  public void attack(final Card attacker, final Card victim) {
-    if (this.cardDeck == null || this.cardDeck.isEmpty()) {
-      throw new IllegalStateException("꺼낼 수 있는 카드가 없습니다.");
+  public void attack(final int indexOfDeck, final Card victim) {
+    if (victim == null) {
+      throw new IllegalArgumentException("공격받을 대상이 존재하지 않습니다.");
     }
 
-    if (this.cardDeck.contains(attacker)) {
-      throw new IllegalStateException("존재하지 않는 카드입니다.");
+    if (this.cardDeck == null) {
+      throw new IllegalStateException("카드덱이 존재하지 않습니다.");
     }
 
+    Card attacker = this.cardDeck.takeOut(indexOfDeck);
     victim.beDamaged(attacker.getPower());
   }
 
-  public void attack(final Card attacker, final Hero victim) {
-    if (this.cardDeck == null || this.cardDeck.isEmpty()) {
+  public void attack(final int indexOfDeck, final Hero victim) {
+    if (victim == null) {
+      throw new IllegalArgumentException("공격받을 대상이 존재하지 않습니다.");
+    }
+
+    if (this.cardDeck == null) {
       throw new IllegalStateException("꺼낼 수 있는 카드가 없습니다.");
     }
 
-    if (this.cardDeck.contains(attacker)) {
-      throw new IllegalStateException("존재하지 않는 카드입니다.");
-    }
-
+    Card attacker = this.cardDeck.takeOut(indexOfDeck);
     victim.beDamaged(attacker.getPower());
   }
 

@@ -53,13 +53,39 @@ public class CardDeck {
 
     Collections.shuffle(cards);
 
+    return takeOutAsManyAs(quantity);
+  }
+
+  public List<Card> takeOutAsManyAs(final int quantity) {
+    if (CollectionUtils.isEmpty(this.cards)) {
+      return Collections.emptyList();
+    }
+
     return IntStream.range(0, Math.min(this.cards.size(), quantity))
-        .mapToObj(cards::get)
+        .mapToObj(this::takeOut)
         .collect(Collectors.toList());
   }
 
-  public void add(final List<Card> card) {
-    if (card == null) {
+  public Card takeOut(final int cardIndex) {
+    if (cardIndex < 0) {
+      throw new IllegalArgumentException("제거할 카드를 다시 확인해주세요.");
+    }
+
+    try {
+      Card card = this.cards.get(cardIndex);
+
+      this.cards = this.cards.stream()
+          .filter(v -> Objects.equals(card.getId(), v.getId()))
+          .collect(Collectors.toList());
+
+      return card;
+    } catch (IndexOutOfBoundsException e) {
+      throw new IllegalArgumentException("제거할 카드를 다시 확인해주세요.");
+    }
+  }
+
+  public void add(final List<Card> cards) {
+    if (CollectionUtils.isEmpty(cards)) {
       throw new IllegalArgumentException("추가할 카드가 존재하지 않습니다.");
     }
 
@@ -67,12 +93,12 @@ public class CardDeck {
       throw new IllegalArgumentException();
     }
 
-    this.cards.addAll(card);
+    this.cards.addAll(cards);
   }
 
   public void add(final Card card) {
     if (card == null) {
-      throw new IllegalArgumentException("추가할 카드가 존재하지 않습니다.");
+      throw new IllegalArgumentException("추가할 카드 정보를 올바르게 입력해주세요.");
     }
 
     if (CollectionUtils.size(this.cards) >= maxQuantityOfCard) {
@@ -82,14 +108,16 @@ public class CardDeck {
     this.cards.add(card);
   }
 
-  public void remove(final Card card) {
-    if (card == null) {
-      throw new IllegalArgumentException("제거할 카드를 다시 확인해주세요.");
+  public void add(final int index, final Card card) {
+    if (card == null || index < 0) {
+      throw new IllegalArgumentException("추가할 카드 정보를 올바르게 입력해주세요.");
     }
 
-    this.cards = this.cards.stream()
-        .filter(v -> Objects.equals(card.getId(), v.getId()))
-        .collect(Collectors.toList());
+    if (CollectionUtils.size(this.cards) >= maxQuantityOfCard) {
+      throw new IllegalArgumentException("더 이상 카드를 추가할 수 없습니다.");
+    }
+
+    this.cards.add(index, card);
   }
 
 }
