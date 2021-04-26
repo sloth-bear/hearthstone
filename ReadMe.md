@@ -61,4 +61,6 @@
 4. 카드를 꺼내라 
 5. 공격해라
 6. 피해를 입어라
-7. 파괴되어라
+
+### 필요한 메시지를 수신할 객체 선택
+<img width="670" alt="image" src="https://user-images.githubusercontent.com/62458327/116038610-9fc0eb80-a6a4-11eb-936f-8c155b034b3c.png">
