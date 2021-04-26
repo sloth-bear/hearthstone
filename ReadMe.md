@@ -66,6 +66,8 @@
 5. 공격해라
 6. 피해를 입어라
 
-### 필요한 메시지를 수신할 객체 선택
+
+
+## 필요한 메시지를 수신할 객체 선택
 <img width="672" alt="image" src="https://user-images.githubusercontent.com/62458327/116038834-eca4c200-a6a4-11eb-8d27-26309a444d27.png">
 
