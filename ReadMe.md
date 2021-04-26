@@ -73,6 +73,7 @@
 <img width="389" alt="image" src="https://user-images.githubusercontent.com/62458327/116040692-4f975880-a6a7-11eb-920d-90d5bad6d496.png">
 
 ### 카드를 등록해라/공격해라, 카드를 꺼내라, 피해를 입어라
-<img width="592" alt="image" src="https://user-images.githubusercontent.com/62458327/116040665-460df080-a6a7-11eb-9d92-f8d767ef496e.png">
+<img width="586" alt="image" src="https://user-images.githubusercontent.com/62458327/116040819-73f33500-a6a7-11eb-90b5-53f723c7af4e.png">
+
 
 
