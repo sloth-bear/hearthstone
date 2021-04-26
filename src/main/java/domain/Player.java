@@ -2,6 +2,7 @@ package domain;
 
 
 import domain.card.Card;
+import domain.card.CardDeck;
 import domain.hero.Hero;
 import java.util.List;
 
