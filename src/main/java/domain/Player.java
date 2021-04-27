@@ -10,7 +10,6 @@ public class Player {
 
   private final Hero hero;
   private final CardDeck cardDeck;
-
   private final Board board;
 
 
@@ -20,6 +19,13 @@ public class Player {
     this.board = board;
   }
 
+  public Hero getHero() {
+    return this.hero;
+  }
+
+  public CardDeck getCardDeck() {
+    return cardDeck;
+  }
 
   public void receive(final List<Card> cards) {
     this.cardDeck.add(cards);
@@ -64,4 +70,12 @@ public class Player {
     this.hero.attack(victim);
   }
 
+  @Override
+  public String toString() {
+    return "Player { " +
+        "hero=" + hero +
+        ", cardDeck=" + cardDeck +
+        ", board=" + board +
+        " }";
+  }
 }

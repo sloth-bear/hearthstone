@@ -20,4 +20,11 @@ public class Board {
     this.cardDeck.add(index, card);
   }
 
+  @Override
+  public String toString() {
+    return "Board { " +
+        "cardDeck=" + cardDeck +
+        " }";
+  }
+
 }

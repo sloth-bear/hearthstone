@@ -19,6 +19,11 @@ public class CardDeck {
     this.cards = new ArrayList<>();
   }
 
+  public CardDeck(final int maxQuantityOfCard) {
+    this();
+    this.maxQuantityOfCard = maxQuantityOfCard;
+  }
+
   public CardDeck(final List<Card> cards) {
     this.cards = cards;
   }
@@ -71,7 +76,7 @@ public class CardDeck {
       Card card = this.cards.get(cardIndex);
 
       this.cards = this.cards.stream()
-          .filter(v -> Objects.equals(card.getId(), v.getId()))
+          .filter(v -> !Objects.equals(card.getId(), v.getId()))
           .collect(Collectors.toList());
 
       return card;
@@ -116,4 +121,11 @@ public class CardDeck {
     this.cards.add(index, card);
   }
 
+  @Override
+  public String toString() {
+    return "CardDeck { " +
+        "maxQuantityOfCard=" + maxQuantityOfCard +
+        ", cards=" + cards +
+        " }";
+  }
 }

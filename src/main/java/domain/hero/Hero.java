@@ -7,7 +7,7 @@ public class Hero {
 
   private final UUID id;
 
-  private int hp = 30;
+  private int hp = 15;
   private int power;
 
   public Hero(final int power) {
@@ -45,4 +45,11 @@ public class Hero {
     this.hp = this.hp - power;
   }
 
+  @Override
+  public String toString() {
+    return "Hero { " +
+        "hp=" + hp +
+        ", power=" + power +
+        " }";
+  }
 }

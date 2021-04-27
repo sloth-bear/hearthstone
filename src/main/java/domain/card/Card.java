@@ -44,4 +44,11 @@ public class Card {
     this.hp = this.hp - power;
   }
 
+  @Override
+  public String toString() {
+    return "Card{" +
+        "power=" + power +
+        ", hp=" + hp +
+        '}';
+  }
 }
