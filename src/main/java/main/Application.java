@@ -49,6 +49,8 @@ public class Application {
       }
     }
 
+    scanner.close();
+
     System.out.println(wizard.getHero().getHp() < 1 ? "Warrior의 승리입니다." : "Wizard의 승리입니다.");
     System.out.printf("[Wizard] %s%n", wizard);
     System.out.printf("[Warrior] %s%n%n", warrior);
