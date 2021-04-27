@@ -13,7 +13,6 @@ public class Application {
   public static void main(String[] args) {
     System.out.printf(":: 게임이 시작됩니다. ::%n%n");
 
-    // 1. 카드덱 생성
     CardDeck cardDeck = new CardDeck(15);
     cardDeck.add(
         List.of(new Dragon(), new Dragon(), new Dragon(), new Dragon(),
@@ -36,11 +35,11 @@ public class Application {
     System.out.printf("[Warrior] 카드덱: %s%n", warrior.getCardDeck());
     System.out.printf("남은 카드덱: %s%n%n", cardDeck);
 
-    System.out.println("카드를 등록하시려면 1번, 공격하시려면 2번을 눌러주세요.");
-
     Scanner scanner = new Scanner(System.in);
 
-    while (wizard.getHero().getHp() > 1 && warrior.getHero().getHp() > 1) {
+    while (wizard.getHero().getHp() > 0 && warrior.getHero().getHp() > 0) {
+      System.out.printf("카드를 등록하시려면 1번, 공격하시려면 2번을 눌러주세요. %n%n");
+
       if (scanner.nextInt() == 1) {
         register(wizard, scanner, "Wizard");
         register(warrior, scanner, "Warrior");
@@ -50,16 +49,16 @@ public class Application {
       }
     }
 
-    System.out.println(wizard.getHero().getHp() < 1 ? "Warrior" : "Wizard" + "의 승리입니다.");
+    System.out.println(wizard.getHero().getHp() < 1 ? "Warrior의 승리입니다." : "Wizard의 승리입니다.");
     System.out.printf("[Wizard] %s%n", wizard);
-    System.out.printf("[Warrior] %s%n", warrior);
+    System.out.printf("[Warrior] %s%n%n", warrior);
   }
 
   private static void register(final Player player, final Scanner scanner, final String name) {
     System.out.printf("[%s] 몇 번째 카드를 등록하시겠습니까?%n%n", name);
 
     int indexOfDeck = scanner.nextInt();
-    System.out.printf("[%s] 등록할 위치를 입력해주세요.%n%n", name);
+    System.out.printf("[%s] 등록할 위치를 입력해주세요. %s%n%n", name, player.getBoard());
 
     int indexOfBoard = scanner.nextInt();
 
@@ -67,19 +66,22 @@ public class Application {
       player.resister(indexOfDeck, indexOfBoard);
       System.out.printf("[%s] 등록되었습니다. %n%n", player.getBoard());
     } catch (IllegalStateException | IllegalArgumentException | IndexOutOfBoundsException e) {
-      System.out.println("정확한 값을 입력해주세요.");
+      System.out.printf("정확한 값을 입력해주세요. %n%n");
       register(player, scanner, name);
     }
   }
 
   private static void attack(final Player attacker, final Player victim, final Scanner scanner) {
-    System.out.println("영웅으로 직접 공격하시려면 1번, 카드로 공격하시려면 2번을 눌러주세요. 단, 영웅으로 공격할 시 영웅의 체력이 닳습니다.");
+    System.out.printf("영웅으로 직접 공격하시려면 1번, 카드로 공격하시려면 2번을 눌러주세요. 단, 영웅으로 공격할 시 영웅의 체력이 닳습니다. %n%n");
 
     if (scanner.nextInt() == 1) {
       attacker.attack(victim.getHero());
-      System.out.printf(":: 플레이어 정보입니다. ::");
+
+      System.out.printf("%n공격하였습니다. %n%n");
+
+      System.out.println(":: 플레이어 정보입니다. ::");
       System.out.printf("%s%n", attacker);
-      System.out.printf("%s%n", victim);
+      System.out.printf("%s%n%n", victim);
     } else {
       attackWithCard(attacker, victim, scanner);
     }
@@ -87,13 +89,16 @@ public class Application {
 
   private static void attackWithCard(final Player attacker, final Player victim, final Scanner scanner) {
     System.out.println("몇 번째 카드로 공격하시겠습니까?");
-    System.out.printf("카드덱:  %s%n", attacker.getCardDeck());
+    System.out.printf("카드덱:  %s%n%n", attacker.getCardDeck());
 
     try {
       attacker.attack(scanner.nextInt(), victim.getHero());
-      System.out.printf(":: 플레이어 정보입니다. ::");
+
+      System.out.printf("%n공격하였습니다. %n%n");
+
+      System.out.println(":: 플레이어 정보입니다. ::");
       System.out.printf("%s%n", attacker);
-      System.out.printf("%s%n", victim);
+      System.out.printf("%s%n%n", victim);
     } catch (IllegalStateException | IllegalArgumentException e) {
       attackWithCard(attacker, victim, scanner);
     }
