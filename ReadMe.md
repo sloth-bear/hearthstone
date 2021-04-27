@@ -77,12 +77,12 @@
 <img width="368" alt="image" src="https://user-images.githubusercontent.com/62458327/116044640-1ca39380-a6ac-11eb-8688-378beb02135b.png">
 
 ### 카드 등록 시 
-<img width="399" alt="image" src="https://user-images.githubusercontent.com/62458327/116044565-0a295a00-a6ac-11eb-8a14-f9992d6e694b.png">
+<img width="439" alt="image" src="https://user-images.githubusercontent.com/62458327/116184398-a316ae80-a75a-11eb-8970-fd77f4144412.png">
 
 ### 공격 시 
 #### 카드의 공격
-<img width="405" alt="image" src="https://user-images.githubusercontent.com/62458327/116052504-a48d9b80-a6b4-11eb-9056-d0eeed01d27f.png">
+<img width="440" alt="image" src="https://user-images.githubusercontent.com/62458327/116184407-a873f900-a75a-11eb-82a5-0a23ad4d82d7.png">
 
 #### 영웅의 공격
-<img width="391" alt="image" src="https://user-images.githubusercontent.com/62458327/116052554-afe0c700-a6b4-11eb-85bc-1050a6b25757.png">
+<img width="669" alt="image" src="https://user-images.githubusercontent.com/62458327/116184425-b32e8e00-a75a-11eb-8b21-5f4537c4c51d.png">
 
