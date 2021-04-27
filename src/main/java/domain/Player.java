@@ -13,11 +13,12 @@ public class Player {
   private final Board board;
 
 
-  public Player(final Hero hero, final CardDeck cardDeck, final Board board) {
+  public Player(Hero hero) {
     this.hero = hero;
-    this.cardDeck = cardDeck;
-    this.board = board;
+    this.cardDeck = new CardDeck();
+    this.board = new Board();
   }
+
 
   public Hero getHero() {
     return this.hero;

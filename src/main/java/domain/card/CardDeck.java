@@ -1,5 +1,6 @@
 package domain.card;
 
+import domain.Player;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -43,18 +44,17 @@ public class CardDeck {
     return this.cards.size();
   }
 
-  public List<Card> distribute(final CardQuantity cardQuantity) {
-    return distribute(cardQuantity.getQuantity());
+  public void distribute(final CardQuantity cardQuantity, final Player player) {
+    distribute(cardQuantity.getQuantity(), player);
   }
 
-  public List<Card> distribute(final int quantity) {
+  public void distribute(final int quantity, final Player player) {
     if (CollectionUtils.isEmpty(this.cards)) {
-      return Collections.emptyList();
+      return;
     }
 
     Collections.shuffle(cards);
-
-    return takeOutAsManyAs(quantity);
+    player.receive(takeOutAsManyAs(quantity));
   }
 
   public List<Card> takeOutAsManyAs(final int quantity) {
