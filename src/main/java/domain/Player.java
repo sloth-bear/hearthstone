@@ -41,19 +41,11 @@ public class Player {
   }
 
   public void resister(final int indexOfDeck, final int indexOfBoard) {
-    if (this.cardDeck == null) {
-      throw new IllegalStateException("카드덱이 존재하지 않습니다.");
-    }
-
     Card card = this.cardDeck.takeOut(indexOfDeck);
     this.board.register(indexOfBoard, card);
   }
 
   public void attack(final int indexOfDeck, final Hero victim) {
-    if (this.cardDeck == null) {
-      throw new IllegalStateException("카드덱이 존재하지 않습니다.");
-    }
-
     Card attacker = this.cardDeck.takeOut(indexOfDeck);
     attacker.attack(victim);
   }
