@@ -57,7 +57,7 @@ public class Game {
     printInformationLine("[Warrior]", warrior);
   }
 
-  private static void register(final Player player, final Scanner scanner) {
+  private void register(final Player player, final Scanner scanner) {
     printSeparateLine("몇 번째 카드를 등록하시겠습니까?");
 
     int indexOfDeck = scanner.nextInt();
@@ -77,7 +77,7 @@ public class Game {
     }
   }
 
-  private static void attack(final Player attacker, final Player victim, final Scanner scanner) {
+  private void attack(final Player attacker, final Player victim, final Scanner scanner) {
     printSeparateLine("영웅으로 직접 공격하시려면 1번, 카드로 공격하시려면 2번을 눌러주세요. 단, 영웅으로 공격할 시 영웅의 체력이 닳습니다.");
 
     if (scanner.nextInt() == 1) {
@@ -93,7 +93,7 @@ public class Game {
     }
   }
 
-  private static void attackWithCard(final Player attacker, final Player victim, final Scanner scanner) {
+  private void attackWithCard(final Player attacker, final Player victim, final Scanner scanner) {
     printSeparateLine("몇 번째 카드로 공격하시겠습니까?");
     printInformationLine("[소유 카드덱]", attacker.getCardDeck());
 
