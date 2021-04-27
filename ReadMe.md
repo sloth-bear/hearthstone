@@ -16,7 +16,7 @@
 4. 첫 턴 이후 각 `플레이어`는 `카드`를 1장씩 받는다. 
 5. `플레이어`가 받은 `카드` 중 하나를 `게임보드`에 등록하면 `카드`는 `보드`에 놓여진다.
 6. `플레이어`가 받은 `카드` 중 하나로 `영웅`을 공격하면 `영웅`은 피해를 입는다.
-7. `플레이어`의 `영웅`으로 `영웅` 혹은 `카드`를 공격하면 `영웅` 혹은 `카드`는 피해를 입고, 공격한 `플레이어`의 `영웅`도 상대의 공격력 만큼 피해를 입는다. 
+7. `플레이어`의 `영웅`으로 상대 `영웅`을 공격하면 `영웅`은 피해를 입고, 공격한 `플레이어`의 `영웅`도 상대의 공격력 만큼 피해를 입는다. 
 8. `영웅`의 생명력이 0이 되면 `영웅`은 파괴되고 게임은 끝난다.
 
 ### 참고
@@ -43,7 +43,9 @@
        16. 덱에 있는 카드는 카드의 성격에 따라 직접 영웅을 공격할 수도, 게임보드에 등록할 수도 있다.
   </details> 
 - 추후 추가하고 싶은 기능
+  - 플레이어별 카드덱 가지기
   - 게임보드에 등록된 카드로 공격
+  - 게임보드에 등록된 카드에 대한 공격
   - 피해 받은 카드는 게임보드에서 소멸  
   - ...etc
 
@@ -77,12 +79,12 @@
 <img width="368" alt="image" src="https://user-images.githubusercontent.com/62458327/116044640-1ca39380-a6ac-11eb-8688-378beb02135b.png">
 
 ### 카드 등록 시 
-<img width="399" alt="image" src="https://user-images.githubusercontent.com/62458327/116044565-0a295a00-a6ac-11eb-8a14-f9992d6e694b.png">
+<img width="439" alt="image" src="https://user-images.githubusercontent.com/62458327/116184398-a316ae80-a75a-11eb-8970-fd77f4144412.png">
 
 ### 공격 시 
 #### 카드의 공격
-<img width="405" alt="image" src="https://user-images.githubusercontent.com/62458327/116052504-a48d9b80-a6b4-11eb-9056-d0eeed01d27f.png">
+<img width="459" alt="image" src="https://user-images.githubusercontent.com/62458327/116194621-0bba5700-a76c-11eb-9615-9819147e107a.png">
 
 #### 영웅의 공격
-<img width="391" alt="image" src="https://user-images.githubusercontent.com/62458327/116052554-afe0c700-a6b4-11eb-85bc-1050a6b25757.png">
+<img width="670" alt="image" src="https://user-images.githubusercontent.com/62458327/116194641-1248ce80-a76c-11eb-9009-7c72f48975a3.png">
 
