@@ -22,9 +22,7 @@ public class Board {
 
   @Override
   public String toString() {
-    return "Board { " +
-        "cardDeck=" + cardDeck +
-        " }";
+    return cardDeck.toString();
   }
 
 }

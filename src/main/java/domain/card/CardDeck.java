@@ -123,9 +123,6 @@ public class CardDeck {
 
   @Override
   public String toString() {
-    return "CardDeck { " +
-        "maxQuantityOfCard=" + maxQuantityOfCard +
-        ", cards=" + cards +
-        " }";
+    return cards.toString();
   }
 }

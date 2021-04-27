@@ -27,6 +27,10 @@ public class Player {
     return cardDeck;
   }
 
+  public Board getBoard() {
+    return board;
+  }
+
   public void receive(final List<Card> cards) {
     this.cardDeck.add(cards);
   }
@@ -44,15 +48,6 @@ public class Player {
     this.board.register(indexOfBoard, card);
   }
 
-  public void attack(final int indexOfDeck, final Card victim) {
-    if (this.cardDeck == null) {
-      throw new IllegalStateException("카드덱이 존재하지 않습니다.");
-    }
-
-    Card attacker = this.cardDeck.takeOut(indexOfDeck);
-    attacker.attack(victim);
-  }
-
   public void attack(final int indexOfDeck, final Hero victim) {
     if (this.cardDeck == null) {
       throw new IllegalStateException("카드덱이 존재하지 않습니다.");
@@ -60,10 +55,6 @@ public class Player {
 
     Card attacker = this.cardDeck.takeOut(indexOfDeck);
     attacker.attack(victim);
-  }
-
-  public void attack(final Card victim) {
-    this.hero.attack(victim);
   }
 
   public void attack(final Hero victim) {
