@@ -76,7 +76,7 @@
 
 ## 필요한 메시지를 수신할 객체 선택
 ### 카드 나눔 시
-<img width="368" alt="image" src="https://user-images.githubusercontent.com/62458327/116044640-1ca39380-a6ac-11eb-8688-378beb02135b.png">
+<img width="392" alt="image" src="https://user-images.githubusercontent.com/62458327/116200486-5ab7ba80-a773-11eb-88c6-f9376adbd1b0.png">
 
 ### 카드 등록 시 
 <img width="439" alt="image" src="https://user-images.githubusercontent.com/62458327/116184398-a316ae80-a75a-11eb-8970-fd77f4144412.png">
