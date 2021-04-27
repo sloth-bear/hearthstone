@@ -7,6 +7,7 @@ import domain.Player;
 import domain.card.*;
 import domain.hero.Warrior;
 import domain.hero.Wizard;
+import java.util.List;
 import java.util.Scanner;
 
 public class Game {
@@ -15,7 +16,7 @@ public class Game {
     printSeparateLine("게임이 시작됩니다.");
 
     CardDeck cardDeck = new CardDeck();
-    cardDeck.add(CardFactory.getSample());
+    cardDeck.add(getSample());
 
     printSeparateLine("카드덱이 생성되었습니다.");
     printSeparateLine(cardDeck.toString());
@@ -107,6 +108,15 @@ public class Game {
     } catch (IllegalStateException | IllegalArgumentException e) {
       attackWithCard(attacker, victim, scanner);
     }
+  }
+
+  private List<Card> getSample() {
+    return List.of(
+        new Dragon(), new Dragon(), new Dragon(), new Dragon(),
+        new Murloc(), new Murloc(), new Murloc(), new Murloc(),
+        new Teacher(), new Teacher(), new Teacher(), new Teacher(),
+        new Zombie(), new Zombie(), new Zombie()
+    );
   }
 
 }
