@@ -6,4 +6,9 @@ public class Warrior extends Hero {
     super(2);
   }
 
+  @Override
+  public String toString() {
+    return "Warrior(" + this.getPower() + "/" + this.getHp() + ")";
+  }
+
 }

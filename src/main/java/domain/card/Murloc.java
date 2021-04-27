@@ -6,4 +6,9 @@ public class Murloc extends Card {
     super(1, 2);
   }
 
+  @Override
+  public String toString() {
+    return "Murloc(" + super.getPower() + "/" + super.getHp() + ")";
+  }
+
 }

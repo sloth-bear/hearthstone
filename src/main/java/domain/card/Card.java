@@ -24,6 +24,10 @@ public class Card {
     return this.power;
   }
 
+  public int getHp() {
+    return this.hp;
+  }
+
   public void attack(final Card victim) {
     if (victim == null) {
       throw new IllegalArgumentException("공격받을 대상이 존재하지 않습니다.");
@@ -46,9 +50,7 @@ public class Card {
 
   @Override
   public String toString() {
-    return "Card{" +
-        "power=" + power +
-        ", hp=" + hp +
-        '}';
+    return "Card(" + power + "/" + hp + ")";
   }
+
 }

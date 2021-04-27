@@ -6,4 +6,9 @@ public class Dragon extends Card {
     super(5, 12);
   }
 
+  @Override
+  public String toString() {
+    return "Dragon(" + super.getPower() + "/" + super.getHp() + ")";
+  }
+
 }

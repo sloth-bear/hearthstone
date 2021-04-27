@@ -6,4 +6,9 @@ public class Zombie extends Card {
     super(6, 7);
   }
 
+  @Override
+  public String toString() {
+    return "Zombie(" + super.getPower() + "/" + super.getHp() + ")";
+  }
+
 }

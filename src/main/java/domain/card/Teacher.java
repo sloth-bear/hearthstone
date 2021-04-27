@@ -6,4 +6,9 @@ public class Teacher extends Card {
     super(3, 5);
   }
 
+  @Override
+  public String toString() {
+    return "Teacher(" + super.getPower() + "/" + super.getHp() + ")";
+  }
+
 }
