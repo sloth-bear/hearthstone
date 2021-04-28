@@ -88,3 +88,8 @@
 #### 영웅의 공격
 <img width="670" alt="image" src="https://user-images.githubusercontent.com/62458327/116194641-1248ce80-a76c-11eb-9009-7c72f48975a3.png">
 
+
+
+## 참조
+* https://github.com/jojoldu/oop-java
+* https://jupiny.com/2019/01/12/object-orientation-fact-and-misunderstanding/ 
