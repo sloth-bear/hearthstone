@@ -91,5 +91,7 @@
 
 
 ## 참조
+* 객체지향의 사실과 오해
+* https://okky.kr/article/358197
 * https://github.com/jojoldu/oop-java
 * https://jupiny.com/2019/01/12/object-orientation-fact-and-misunderstanding/ 
