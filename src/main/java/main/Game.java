@@ -1,7 +1,8 @@
 package main;
 
-import static printer.Printer.printInformationLine;
-import static printer.Printer.printSeparateLine;
+import static printer.Printer.print;
+import static printer.Printer.println;
+import static printer.Printer.printDivider;
 
 import domain.Player;
 import domain.card.*;
@@ -13,33 +14,46 @@ import java.util.Scanner;
 public class Game {
 
   public void play() {
-    printSeparateLine("게임이 시작됩니다.");
+    printDivider();
+
+    print("게임이 시작됩니다.");
 
     CardDeck cardDeck = new CardDeck();
     cardDeck.add(getSample());
 
-    printSeparateLine("카드덱이 생성되었습니다.");
-    printSeparateLine(cardDeck.toString());
+    printDivider();
+    println("카드덱이 생성되었습니다.", cardDeck);
 
     Player wizard = new Player(new Wizard());
     Player warrior = new Player(new Warrior());
 
-    printSeparateLine("플레이어가 생성되었습니다.");
-    printInformationLine("[Wizard]", wizard);
-    printInformationLine("[Warrior]", warrior);
+    printDivider();
+
+    print("플레이어 정보입니다.");
+    print("[선공]", wizard);
+    print("[후공]", warrior);
+
+    printDivider();
+
+    print("카드덱을 분배합니다.");
 
     cardDeck.distribute(CardQuantity.PREEMPTIVE_ATTACK, wizard);
     cardDeck.distribute(CardQuantity.NON_PREEMPTIVE_ATTACK, warrior);
 
-    printSeparateLine("카드덱을 분배합니다.");
-    printInformationLine("[Wizard] 카드덱: ", wizard.getCardDeck());
-    printInformationLine("[Warrior] 카드덱: ", warrior.getCardDeck());
-    printInformationLine("남은 카드덱: ", cardDeck);
+    print("[Wizard]", wizard.getCardDeck());
+    print("[Warrior]", warrior.getCardDeck());
+
+    printDivider();
+
+    print("남은 카드덱 정보입니다.");
+    print("[카드덱]", cardDeck);
+
+    printDivider();
 
     Scanner scanner = new Scanner(System.in);
 
     while (wizard.getHero().getHp() > 0 && warrior.getHero().getHp() > 0) {
-      printSeparateLine("카드를 등록하시려면 1번, 공격하시려면 2번을 눌러주세요.");
+      print("카드를 등록하시려면 1번, 공격하시려면 2번을 눌러주세요.");
 
       if (scanner.nextInt() == 1) {
         register(wizard, scanner);
@@ -52,59 +66,76 @@ public class Game {
 
     scanner.close();
 
-    printSeparateLine(wizard.getHero().getHp() < 1 ? "Warrior의 승리입니다." : "Wizard의 승리입니다.");
-    printInformationLine("[Wizard]", wizard);
-    printInformationLine("[Warrior]", warrior);
+    printDivider();
+
+    print(wizard.getHero().getHp() < 1 ? "[선공]의 승리입니다." : "[후공]의 승리입니다.");
+    print(wizard.getHero(), wizard);
+    print(warrior.getHero(), warrior);
+
+    printDivider();
+
+    print("게임이 종료되었습니다.");
   }
 
   private void register(final Player player, final Scanner scanner) {
-    printSeparateLine("몇 번째 카드를 등록하시겠습니까?");
+    print("몇 번째 카드를 등록하시겠습니까?");
 
     int indexOfDeck = scanner.nextInt();
-    printSeparateLine("등록할 위치를 입력해주세요.");
-    printInformationLine("[게임보드]", player.getBoard());
+    print("등록할 위치를 입력해주세요.");
+    print("[게임보드]", player.getBoard());
 
     int indexOfBoard = scanner.nextInt();
 
     try {
       player.resister(indexOfDeck, indexOfBoard);
 
-      printInformationLine("등록되었습니다", player.getBoard());
+      print("등록되었습니다", player.getBoard());
+      printDivider();
     } catch (IllegalStateException | IllegalArgumentException | IndexOutOfBoundsException e) {
-      printSeparateLine("정확한 값을 입력해주세요.");
+      print("정확한 값을 입력해주세요.");
 
       register(player, scanner);
+
+      printDivider();
     }
   }
 
   private void attack(final Player attacker, final Player victim, final Scanner scanner) {
-    printSeparateLine("영웅으로 직접 공격하시려면 1번, 카드로 공격하시려면 2번을 눌러주세요. 단, 영웅으로 공격할 시 영웅의 체력이 닳습니다.");
+    print(attacker.getHero(), "영웅으로 직접 공격하시려면 1번, 카드로 공격하시려면 2번을 눌러주세요. 단, 영웅으로 공격할 시 영웅의 체력이 닳습니다.");
 
     if (scanner.nextInt() == 1) {
       attacker.attack(victim.getHero());
 
-      printSeparateLine("공격하였습니다.");
+      print("공격하였습니다.");
 
-      printSeparateLine("플레이어 정보입니다.");
-      printInformationLine("[공격자]", attacker);
-      printInformationLine("[방어자]", victim);
+      printDivider();
+
+      print("플레이어 정보입니다.");
+      print(attacker.getHero(), attacker);
+      print(victim.getHero(), victim);
+
+      printDivider();
     } else {
       attackWithCard(attacker, victim, scanner);
     }
   }
 
   private void attackWithCard(final Player attacker, final Player victim, final Scanner scanner) {
-    printSeparateLine("몇 번째 카드로 공격하시겠습니까?");
-    printInformationLine("[소유 카드덱]", attacker.getCardDeck());
+    print("몇 번째 카드로 공격하시겠습니까?");
+    print("[소유 카드덱]", attacker.getCardDeck());
 
     try {
       attacker.attack(scanner.nextInt(), victim.getHero());
 
-      printSeparateLine("공격하였습니다.");
+      print("공격하였습니다.");
 
-      printSeparateLine("플레이어 정보입니다.");
-      printInformationLine("[공격자]", attacker);
-      printInformationLine("[방어자]", victim);
+      printDivider();
+
+      print("플레이어 정보입니다.");
+      print(attacker.getHero(), attacker);
+      print(victim.getHero(), victim);
+
+      printDivider();
     } catch (IllegalStateException | IllegalArgumentException e) {
       attackWithCard(attacker, victim, scanner);
     }
