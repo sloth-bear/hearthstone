@@ -33,22 +33,7 @@ public class Game {
     print("[선공]", wizard);
     print("[후공]", warrior);
 
-    printDivider();
-
-    print("카드덱을 분배합니다.");
-
-    cardDeck.distribute(CardQuantity.PREEMPTIVE_ATTACK, wizard);
-    cardDeck.distribute(CardQuantity.NON_PREEMPTIVE_ATTACK, warrior);
-
-    print("[Wizard]", wizard.getCardDeck());
-    print("[Warrior]", warrior.getCardDeck());
-
-    printDivider();
-
-    print("남은 카드덱 정보입니다.");
-    print("[카드덱]", cardDeck);
-
-    printDivider();
+    distributeCards(cardDeck, wizard, warrior);
 
     Scanner scanner = new Scanner(System.in);
 
@@ -75,6 +60,25 @@ public class Game {
     printDivider();
 
     print("게임이 종료되었습니다.");
+  }
+
+  private void distributeCards(final CardDeck cardDeck, final Player attacker, final Player victim) {
+    printDivider();
+
+    print("카드덱을 분배합니다.");
+
+    cardDeck.distribute(CardQuantity.PREEMPTIVE_ATTACK, attacker);
+    cardDeck.distribute(CardQuantity.NON_PREEMPTIVE_ATTACK, victim);
+
+    print("[Wizard]", attacker.getCardDeck());
+    print("[Warrior]", victim.getCardDeck());
+
+    printDivider();
+
+    print("남은 카드덱 정보입니다.");
+    print("[카드덱]", cardDeck);
+
+    printDivider();
   }
 
   private void register(final Player player, final Scanner scanner) {
