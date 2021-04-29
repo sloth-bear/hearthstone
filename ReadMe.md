@@ -76,7 +76,7 @@
 
 ## 필요한 메시지를 수신할 객체 선택
 ### 카드 나눔 시
-<img width="392" alt="image" src="https://user-images.githubusercontent.com/62458327/116200486-5ab7ba80-a773-11eb-88c6-f9376adbd1b0.png">
+<img width="469" alt="image" src="https://user-images.githubusercontent.com/62458327/116486821-77fe9d00-a8c9-11eb-9ba8-842d3be2bd11.png">
 
 ### 카드 등록 시 
 <img width="439" alt="image" src="https://user-images.githubusercontent.com/62458327/116184398-a316ae80-a75a-11eb-8970-fd77f4144412.png">
@@ -88,3 +88,10 @@
 #### 영웅의 공격
 <img width="670" alt="image" src="https://user-images.githubusercontent.com/62458327/116194641-1248ce80-a76c-11eb-9009-7c72f48975a3.png">
 
+
+
+## 참조
+* 객체지향의 사실과 오해
+* https://okky.kr/article/358197
+* https://github.com/jojoldu/oop-java
+* https://jupiny.com/2019/01/12/object-orientation-fact-and-misunderstanding/ 
