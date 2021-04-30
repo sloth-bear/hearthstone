@@ -1,4 +1,4 @@
-package example;
+package application;
 
 import domain.Player;
 import domain.card.*;
@@ -8,6 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import util.MessageWriter;
 
 public class Match {
 

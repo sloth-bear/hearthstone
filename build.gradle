@@ -5,7 +5,7 @@ group 'org.example'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.11
-mainClassName = 'Application'
+mainClassName = 'application.Application'
 
 run {
     standardInput = System.in
