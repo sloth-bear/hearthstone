@@ -2,13 +2,13 @@
 OOP 설계를 위한 간소화된 하스스톤 구현
 
 
-## Build
+## 빌드
 ```
 ./gradlew clean build
 ```
 
 
-## Run
+## 실행
 ```
 ./gradlew run
 ```
