@@ -44,7 +44,7 @@ public class Match {
       }
 
       if (attacker.isInactive()) {
-        break;
+        return;
       }
     }
   }
@@ -87,10 +87,6 @@ public class Match {
     }
 
     MessageWriter.info("카드가 분배되었습니다.");
-
-    for (var key : players.keySet()) {
-      MessageWriter.info(players.get(key).toString());
-    }
   }
 
   private Map<AttackOrder, Player> createPlayers() {
@@ -98,11 +94,7 @@ public class Match {
     players.put(AttackOrder.PREEMPTIVE_ATTACK, new Player(new Warrior()));
     players.put(AttackOrder.NON_PREEMPTIVE_ATTACK, new Player(new Wizard()));
 
-    MessageWriter.info("플레이어가 생성되었습니다.");
-
-    for (var key : players.keySet()) {
-      MessageWriter.info(players.get(key).toString());
-    }
+    MessageWriter.info("플레이어가 생성되었습니다.", players);
 
     return players;
   }

@@ -8,7 +8,7 @@ public class MessageWriter {
 
   public static void info(final String message, final Object object) {
     System.out.println(message);
-    System.out.println(object.toString());
+    System.out.println(object.toString() + "\n");
   }
 
   public static void error(final String message) {
