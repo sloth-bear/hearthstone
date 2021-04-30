@@ -7,7 +7,7 @@ version '1.0-SNAPSHOT'
 sourceCompatibility = 1.11
 mainClassName = 'Application'
 
-run{
+run {
     standardInput = System.in
 }
 
