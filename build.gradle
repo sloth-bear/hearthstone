@@ -1,11 +1,15 @@
-plugins {
-    id 'java'
-}
+apply plugin: 'java'
+apply plugin: 'application'
 
 group 'org.example'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.11
+mainClassName = 'Application'
+
+run{
+    standardInput = System.in
+}
 
 repositories {
     mavenCentral()
