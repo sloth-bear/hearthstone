@@ -26,7 +26,7 @@ public class Match {
     }
 
     MessageWriter.info("매치가 종료되었습니다.");
-    MessageWriter.info(getWinner(players).toString() + "의 승리입니다.");
+    MessageWriter.info(getWinner(players).getHero().toString() + "의 승리입니다.");
   }
 
   private void start(final Map<AttackOrder, Player> players, final Scanner scanner) {

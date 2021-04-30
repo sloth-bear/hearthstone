@@ -3,7 +3,7 @@ package example;
 public class MessageWriter {
 
   public static void info(final String message) {
-    System.out.println(message);
+    System.out.println(message + "\n");
   }
 
   public static void info(final String message, final Object object) {
@@ -12,7 +12,7 @@ public class MessageWriter {
   }
 
   public static void error(final String message) {
-    System.err.println(message);
+    System.err.println(message + "\n");
   }
 
 }
