@@ -1,8 +1,11 @@
+## 소개
+OOP 설계를 위한 간소화된 하스스톤 구현
+
+
 ## Build
 ```
 ./gradlew clean build
 ```
-
 
 
 ## Run
@@ -11,7 +14,7 @@
 ```
 
 
-## Implementation
+## 구현
 ### 객체지향 설계 방법
 1. 도메인에 필요한 객체 정리 
 2. 필요한 메시지 추가 
@@ -19,7 +22,6 @@
 4. 더 이상 필요한 메시지가 없을 때까지 2~3 과정 반복 
 5. 객체들이 수신하는 메시지를 바탕으로 객체들의 인터페이스 구성 
 6. 객체들의 메소드 구현 
-
 
 
 ### 하스스톤 게임 Spec
@@ -64,14 +66,12 @@
   - ...etc
 
 
-
 ### 하스스톤에 필요한 객체 정리 
 1. `CardDeck`
 2. `Card`
 3. `Player`
 4. `Board`
 5. `Hero`
-
 
 
 ### 필요한 메시지
@@ -87,7 +87,6 @@
   - 피해를 입어라
 
 
-
 ### 필요한 메시지를 수신할 객체 선택
 #### 카드 나눔 시
 <img width="469" alt="image" src="https://user-images.githubusercontent.com/62458327/116486821-77fe9d00-a8c9-11eb-9ba8-842d3be2bd11.png">
@@ -101,7 +100,6 @@
 
 ##### 영웅의 공격
 <img width="670" alt="image" src="https://user-images.githubusercontent.com/62458327/116194641-1248ce80-a76c-11eb-9009-7c72f48975a3.png">
-
 
 
 ### 참조
