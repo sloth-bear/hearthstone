@@ -1,3 +1,17 @@
+## Build
+```
+./gradlew clean build
+```
+
+
+
+## Run
+```
+./gradlew run
+```
+
+
+
 ## 객체지향 설계 방법
 1. 도메인에 필요한 객체 정리 
 2. 필요한 메시지 추가 
