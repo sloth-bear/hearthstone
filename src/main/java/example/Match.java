@@ -74,14 +74,16 @@ public class Match {
 
     if (scanner.nextInt() == 1) {
       attacker.attack(victim.getHero());
-    } else {
-      MessageWriter.info("몇 번 카드로 선택하시겠습니까? 카드는 0번부터 시작합니다.", attacker.getCardDeck());
 
-      attacker.attack(scanner.nextInt(), victim.getHero());
-
-      MessageWriter.info("공격하였습니다.", attacker);
-      MessageWriter.info("상대방의 체력은 다음과 같습니다.", victim.getHero());
+      return;
     }
+
+    MessageWriter.info("몇 번 카드로 선택하시겠습니까? 카드는 0번부터 시작합니다.", attacker.getCardDeck());
+
+    attacker.attack(scanner.nextInt(), victim.getHero());
+
+    MessageWriter.info("공격하였습니다.", attacker);
+    MessageWriter.info("상대방의 체력은 다음과 같습니다.", victim.getHero());
   }
 
   private void distributeCards(final CardDeck cardDeck, final Map<AttackOrder, Player> players) {
@@ -102,18 +104,6 @@ public class Match {
     return players;
   }
 
-  private Player getWinner(final Map<AttackOrder, Player> players) {
-    return players.keySet().stream()
-        .filter(key -> !players.get(key).isInactive())
-        .map(players::get)
-        .findFirst()
-        .orElse(null);
-  }
-
-  private boolean isAllActive(final Map<AttackOrder, Player> players) {
-    return players.keySet().stream().noneMatch(key -> players.get(key).isInactive());
-  }
-
   private CardDeck createCardDeck() {
     CardDeck cardDeck = new CardDeck();
     cardDeck.add(
@@ -128,6 +118,18 @@ public class Match {
     MessageWriter.info("카드덱이 생성되었습니다.", cardDeck);
 
     return cardDeck;
+  }
+
+  private Player getWinner(final Map<AttackOrder, Player> players) {
+    return players.keySet().stream()
+        .filter(key -> !players.get(key).isInactive())
+        .map(players::get)
+        .findFirst()
+        .orElse(null);
+  }
+
+  private boolean isAllActive(final Map<AttackOrder, Player> players) {
+    return players.keySet().stream().noneMatch(key -> players.get(key).isInactive());
   }
 
 }
