@@ -78,6 +78,9 @@ public class Match {
       MessageWriter.info("몇 번 카드로 선택하시겠습니까? 카드는 0번부터 시작합니다.", attacker.getCardDeck());
 
       attacker.attack(scanner.nextInt(), victim.getHero());
+
+      MessageWriter.info("공격하였습니다.", attacker);
+      MessageWriter.info("상대방의 체력은 다음과 같습니다.", victim.getHero());
     }
   }
 
