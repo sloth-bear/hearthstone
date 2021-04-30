@@ -32,6 +32,10 @@ public class Player {
     return board;
   }
 
+  public boolean isInactive() {
+    return this.hero == null || this.hero.isDead();
+  }
+
   public void receive(final List<Card> cards) {
     this.cardDeck.add(cards);
   }

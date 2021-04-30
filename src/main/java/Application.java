@@ -1,10 +1,10 @@
-import game.Game;
+import example.Match;
 
 public class Application {
 
   public static void main(String[] args) {
-    Game game = new Game();
-    game.play();
+    Match match = new Match();
+    match.start();
   }
 
 }

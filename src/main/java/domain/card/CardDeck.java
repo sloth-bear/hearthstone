@@ -44,8 +44,8 @@ public class CardDeck {
     return this.cards.size();
   }
 
-  public void distribute(final CardQuantity cardQuantity, final Player player) {
-    distribute(cardQuantity.getQuantity(), player);
+  public void distribute(final AttackOrder attackOrder, final Player player) {
+    distribute(attackOrder.getCardQuantity(), player);
   }
 
   public void distribute(final int quantity, final Player player) {

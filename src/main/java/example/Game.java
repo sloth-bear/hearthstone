@@ -1,4 +1,4 @@
-package game;
+package example;
 
 import static printer.Printer.print;
 import static printer.Printer.println;
@@ -67,8 +67,8 @@ public class Game {
 
     print("카드덱을 분배합니다.");
 
-    cardDeck.distribute(CardQuantity.PREEMPTIVE_ATTACK, attacker);
-    cardDeck.distribute(CardQuantity.NON_PREEMPTIVE_ATTACK, victim);
+    cardDeck.distribute(AttackOrder.PREEMPTIVE_ATTACK, attacker);
+    cardDeck.distribute(AttackOrder.NON_PREEMPTIVE_ATTACK, victim);
 
     print("[Wizard]", attacker.getCardDeck());
     print("[Warrior]", victim.getCardDeck());
