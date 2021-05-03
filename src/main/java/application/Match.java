@@ -91,7 +91,7 @@ public class Match {
         .filter(key -> !players.get(key).isInactive())
         .map(players::get)
         .findFirst()
-        .orElse(null);
+        .orElseThrow(() -> new UnsupportedOperationException("승자가 존재하지 않습니다."));
   }
 
   private boolean isAllActive(final Map<AttackOrder, Player> players) {
