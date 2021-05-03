@@ -5,34 +5,31 @@ import static util.MessageWriter.error;
 
 import domain.Player;
 import domain.card.*;
-import domain.hero.Warrior;
-import domain.hero.Wizard;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Match {
 
-  public void start () {
-    info("1:1 매치를 시작합니다.");
+  private Map<AttackOrder, Player> players;
 
-    CardDeck cardDeck = createCardDeck();
-    Map<AttackOrder, Player> players = createPlayers();
+  public Match(final Map<AttackOrder, Player> players) {
+    this.players = players;
+  }
 
-    distributeCards(cardDeck, players);
+  public void start() {
+    info("경기를 시작합니다.");
 
     Scanner scanner = new Scanner(System.in);
 
     while (isAllActive(players)) {
-      start(players, scanner);
+      start(scanner);
     }
 
     info("매치가 종료되었습니다.");
     info(getWinner(players).getHero().toString() + "의 승리입니다.");
   }
 
-  private void start(final Map<AttackOrder, Player> players, final Scanner scanner) {
+  private void start(final Scanner scanner) {
     for (var key : players.keySet()) {
       Player attacker = players.get(key);
       Player victim = players.get(AttackOrder.getOppositeOrder(key));
@@ -87,40 +84,6 @@ public class Match {
 
     info("공격하였습니다.", attacker);
     info("상대방의 체력은 다음과 같습니다.", victim.getHero());
-  }
-
-  private void distributeCards(final CardDeck cardDeck, final Map<AttackOrder, Player> players) {
-    for (var key : players.keySet()) {
-      cardDeck.distribute(key, players.get(key));
-    }
-
-    info("카드가 분배되었습니다.");
-  }
-
-  private Map<AttackOrder, Player> createPlayers() {
-    Map<AttackOrder, Player> players = new LinkedHashMap<>();
-    players.put(AttackOrder.PREEMPTIVE_ATTACK, new Player(new Warrior()));
-    players.put(AttackOrder.NON_PREEMPTIVE_ATTACK, new Player(new Wizard()));
-
-    info("플레이어가 생성되었습니다.", players);
-
-    return players;
-  }
-
-  private CardDeck createCardDeck() {
-    CardDeck cardDeck = new CardDeck();
-    cardDeck.add(
-        List.of(
-            new Dragon(), new Dragon(), new Dragon(), new Dragon(),
-            new Murloc(), new Murloc(), new Murloc(), new Murloc(),
-            new Teacher(), new Teacher(), new Teacher(), new Teacher(),
-            new Zombie(), new Zombie(), new Zombie()
-        )
-    );
-
-    info("카드덱이 생성되었습니다.", cardDeck);
-
-    return cardDeck;
   }
 
   private Player getWinner(final Map<AttackOrder, Player> players) {
