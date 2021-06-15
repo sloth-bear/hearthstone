@@ -13,9 +13,11 @@ public class Game {
   public void play() {
     info("게임을 시작합니다.");
 
+    // Sb:  player creator인데 return은 map이에요
     Map<AttackOrder, Player> players = PlayerCreator.create();
-    CardHolder cardHolder = new CardHolder(CardDeckCreator.create());
 
+    // Sb: 플레이어가 다 카드를 쥐고있지 않나요?
+    CardHolder cardHolder = new CardHolder(CardDeckCreator.create());
     cardHolder.distribute(players);
 
     Match match = new Match(players);

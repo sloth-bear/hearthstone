@@ -13,6 +13,7 @@ public class CardDeckCreator {
 
   public static CardDeck create() {
     CardDeck cardDeck = new CardDeck();
+    // Sb: 만들어둔 constructor를 사용하는게 좋지 않을까요?
     cardDeck.add(
         List.of(
             new Dragon(), new Dragon(), new Dragon(), new Dragon(),

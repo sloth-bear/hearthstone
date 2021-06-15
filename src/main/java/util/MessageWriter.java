@@ -2,6 +2,7 @@ package util;
 
 public class MessageWriter {
 
+  // Sb: 아래 메소드를 활용해보세요
   public static void info(final String message) {
     System.out.println(message + "\n");
   }

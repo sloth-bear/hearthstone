@@ -15,6 +15,8 @@ public enum AttackOrder {
     return cardQuantity;
   }
 
+
+  // Sb: 생각해보세요
   public static AttackOrder getOppositeOrder(final AttackOrder attackOrder) {
     return attackOrder == PREEMPTIVE_ATTACK ? NON_PREEMPTIVE_ATTACK : PREEMPTIVE_ATTACK;
   }
